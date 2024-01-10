@@ -18,6 +18,11 @@ export default function Game(){
     function jumpTo(nextMove){
       setCurrentMove(nextMove);
     };
+
+    function newGame(){
+        setCurrentMove(0);
+        setHistory([Array(9).fill(null)]);
+    }
   
     const moves = history.map((squares,move) => {
       let description;
@@ -41,7 +46,7 @@ export default function Game(){
         </div>   
         <div className="game-info">
           <ol> {moves}</ol>
-          <ol> <button> New Game </button></ol>
+          <ol> <button onClick={newGame}> New Game </button></ol>
         </div>
       </div>
     );
